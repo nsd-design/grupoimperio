@@ -1,0 +1,11 @@
+#id_telephone {
+  width: 100%; /* Largeur du champ */
+  padding: 10px; /* Espacement interne */
+  font-size: 16px; /* Taille de la police */
+  border-radius: 5px; /* Bordure arrondie */
+  box-sizing: border-box; /* Boîte de contenu incluse dans la largeur et la hauteur */
+}
+
+.iti--separate-dial-code{
+    width: 100%;
+}
