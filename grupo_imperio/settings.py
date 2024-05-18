@@ -28,7 +28,15 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '109.176.197.103',
+    '127.0.0.1',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://grupoimperioinc.us',
+    'https://www.grupoimperioinc.us',
+]
 
 
 # Application definition
@@ -149,3 +157,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
