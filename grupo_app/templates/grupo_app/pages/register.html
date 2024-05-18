@@ -132,6 +132,9 @@
     </div>
   </main><!-- End #main -->
 
+
+<script src="{% static 'assets/js/jquery371.min.js' %}"></script>
+
 <script>
   var input = document.querySelector("#id_telephone");
   var iti = window.intlTelInput(input, {
@@ -139,8 +142,21 @@
     separateDialCode: true, // Affiche le code de pays séparément
     initialCountry: "auto", // Détermine automatiquement le pays initial basé sur l'adresse IP
     formatOnDisplay: true, // Formater le numéro pendant la saisie
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Script utilitaire pour la validation du numéro
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Script utilitaire pour la>
   });
+</script>
+
+
+<script>
+      $(document).ready(function(){
+        $("#id_telephone").on('blur', function(e){
+            let country_code = $(".iti__selected-dial-code").text()
+            let number = e.target.value
+            let phone_number = country_code + number
+            $("#id_telephone").val(phone_number)
+        })
+
+      })
 </script>
 
 </body>

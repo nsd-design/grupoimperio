@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'grupo_app',
     'crispy_forms',
     'crispy_bootstrap5',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles/"
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
@@ -145,3 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
