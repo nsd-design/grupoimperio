@@ -1,7 +1,7 @@
 from crispy_forms.helper import FormHelper
 from django import forms
 from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import PhoneNumberInternationalFallbackWidget
+from phonenumber_field.widgets import PhoneNumberInternationalFallbackWidget, PhoneNumberPrefixWidget
 
 from grupo_app.models import CouponCode
 
@@ -35,7 +35,7 @@ class RegisterForm(forms.Form):
                                widget=forms.PasswordInput())
     confirm_password = forms.CharField(label="Confirmation du mot de passe", max_length=120,
                                        widget=forms.PasswordInput(), min_length=8)
-    telephone = PhoneNumberField(widget=PhoneNumberInternationalFallbackWidget())
+    telephone = PhoneNumberField()
 
 
 class CouponCodeForm(forms.ModelForm):

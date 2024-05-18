@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from grupo_app.forms import RegisterForm, LoginForm, CouponCodeForm
 from grupo_app.models import Utilisateur, CouponCode
@@ -38,6 +39,8 @@ def register(request):
             password = request.POST['password']
             confirm_password = request.POST['confirm_password']
 
+            print("form", form)
+
             if len(password) < 8:
                 return messages.error(request, "Les mots de passe doivent contenir au moins 8 caratères")
 
@@ -47,16 +50,17 @@ def register(request):
                 adr_email = form.cleaned_data['email']
                 username = form.cleaned_data['username']
                 password = form.cleaned_data['password']
+                telephone = form.cleaned_data['telephone']
                 try:
                     new_user = Utilisateur.objects.create_user(
                         username=username, last_name=lastname, first_name=firstname,
-                        email=adr_email, password=password
+                        email=adr_email, password=password, telephone=telephone
                     )
                 except Exception as e:
                     print(e)
                 else:
                     new_user.save()
-                    print("user saved!")
+                    return redirect(reverse('login'))
     return render(request, temp_path+"register.html", {"form": form})
 
 
