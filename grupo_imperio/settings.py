@@ -28,10 +28,14 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['109.176.197.103']
+ALLOWED_HOSTS = [
+    '109.176.197.103',
+    '127.0.0.1',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://grupoimperioinc.us',
+    'https://www.grupoimperioinc.us',
 ]
 
 
